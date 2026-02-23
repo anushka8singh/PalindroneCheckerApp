@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class PalindromeCheckerApp {
 
         public static boolean isPalindrome(String s){
@@ -11,11 +12,14 @@ public class PalindromeCheckerApp {
 
     }
     public static void main(String[] args){
-            String s = "madam";
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a string :");
+            String s = sc.nextLine();
             if(isPalindrome(s)){
                 System.out.println("Palindrome");
             }else{
                 System.out.println("Not a Palindrome");
             }
+            sc.close();
     }
 }
