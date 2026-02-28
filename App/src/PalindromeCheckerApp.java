@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 public class PalindromeCheckerApp {
@@ -82,7 +83,7 @@ public class PalindromeCheckerApp {
             System.out.println("The string is NOT a Palindrome.");
         }*/
 
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
@@ -114,8 +115,38 @@ public class PalindromeCheckerApp {
             System.out.println("The string is a Palindrome.");
         } else {
             System.out.println("The string is NOT a Palindrome.");
+        }*/
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        
+        Deque<Character> deque = new LinkedList<>();
+
+        
+        for (int i = 0; i < input.length(); i++) {
+            deque.addLast(input.charAt(i));
         }
 
+        
+        boolean isPalindrome = true;
+
+        while (deque.size() > 1) {
+            char front = deque.removeFirst(); 
+            char rear  = deque.removeLast();  
+
+            if (front != rear) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        
+        if (isPalindrome) {
+            System.out.println("The string is a Palindrome.");
+        } else {
+            System.out.println("The string is NOT a Palindrome.");
+        }
             sc.close();
     }
 }
