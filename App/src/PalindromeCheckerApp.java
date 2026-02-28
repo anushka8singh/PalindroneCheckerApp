@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 public class PalindromeCheckerApp {
 
 
@@ -50,7 +52,7 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("The string is NOT a Palindrome.");
         }*/
-       Scanner sc = new Scanner(System.in);
+       /*Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
@@ -78,8 +80,41 @@ public class PalindromeCheckerApp {
             System.out.println("The string is a Palindrome.");
         } else {
             System.out.println("The string is NOT a Palindrome.");
+        }*/
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
+
+        
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            queue.add(ch);   
+            stack.push(ch); 
         }
 
+       
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < input.length(); i++) {
+            char fromQueue = queue.remove(); 
+            char fromStack = stack.pop();    
+            if (fromQueue != fromStack) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+      
+        if (isPalindrome) {
+            System.out.println("The string is a Palindrome.");
+        } else {
+            System.out.println("The string is NOT a Palindrome.");
+        }
 
             sc.close();
     }
